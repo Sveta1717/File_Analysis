@@ -11,14 +11,13 @@ namespace File_Analysis
     {
         static void Main(string[] args)
         {           
-        string[] AllFiles = Directory.GetFiles(@"D:\\Документи", "*", SearchOption.AllDirectories);
+        string[] files = Directory.GetFiles(@"D:\\Документи", "*", SearchOption.AllDirectories);
           
-            var extensionGroups = AllFiles.GroupBy(Path.GetExtension).OrderBy(g => g.Count());
-            foreach (var group in extensionGroups)
+            var extension = files.GroupBy(Path.GetExtension).OrderBy(g => g.Count());
+            foreach (var group in extension)
             {
                 Console.WriteLine("файлов с расширением {0} - {1} штук ", group.Key, group.Count());               
-            }          
-
+            }       
         }
     }
 }
